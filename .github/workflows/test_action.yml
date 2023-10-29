@@ -10,4 +10,13 @@ jobs:
         with:
           library_name: "Test"
           schema_path: "./.github/workflows/model.md"
-          push: "true"
+          push: "false"
+      - name: Test
+        run: |
+          printf "::group::Testing sdRDM library\n"
+          
+          python -m pip install rich
+          python ./.github/workflows/test_generated_api.py
+
+          printf "✅ Done\n"
+          printf "::endgroup::"
