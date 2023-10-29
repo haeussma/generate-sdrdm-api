@@ -15,7 +15,7 @@ jobs:
       - name: "Inspect directory"
         run: |
           echo $PWD
-          ls -la ./.github/workflows/
+          ls -la
       - name: Test
         run: |
           printf "::group::Testing sdRDM library\n"
