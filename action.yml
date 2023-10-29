@@ -23,6 +23,14 @@ inputs:
     description: "Push the generated API to the specified branch."
     required: true
     default: "true"
+  schema_out_dir:
+    description: "Target directory for the generated schema."
+    required: true
+    default: "./"
+  schema:
+    description: "Generate the sdRDM schema."
+    required: true
+    default: "false"
 runs:
   using: "composite"
   steps:
@@ -47,6 +55,18 @@ runs:
           --path "${{ inputs.schema_path }}" \
           --out "${{ inputs.out_dir }}" \
           --name "${{ inputs.library_name }}"
+
+        printf "::endgroup::\n"
+    - name: "Generating schema."
+      if: ${{ inputs.schema != 'true' }}
+      shell: "bash"
+      run: |
+        printf "::group::🤖 Generating sdRDM schema\n"
+        
+        sdrdm schema \
+          --path "${{ inputs.schema_path }}" \
+          --out "${{ inputs.schema_out_dir }}" \
+          --name "${{ inputs.library_name }}" \
 
         printf "::endgroup::\n"
     - name: "Pushing API"
