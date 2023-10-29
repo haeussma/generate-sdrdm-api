@@ -57,18 +57,17 @@ runs:
           --name "${{ inputs.library_name }}"
 
         printf "::endgroup::\n"
-    - name: "Generating schema."
-      if: ${{ inputs.schema != 'true' }}
-      shell: "bash"
-      run: |
-        printf "::group::🤖 Generating sdRDM schema\n"
-        
-        sdrdm schema \
-          --path "${{ inputs.schema_path }}" \
-          --out "${{ inputs.schema_out_dir }}" \
-          --name "${{ inputs.library_name }}" \
 
-        printf "::endgroup::\n"
+        if [[ ${{ inputs.schema }} == 'true' ]]; then
+          printf "::group::🤖 Generating sdRDM schema\n"
+          
+          sdrdm schema \
+            --path "${{ inputs.schema_path }}" \
+            --out "${{ inputs.schema_out_dir }}" \
+            --name "${{ inputs.library_name }}" \
+
+          printf "::endgroup::\n"
+        fi
     - name: "Pushing API"
       if: ${{ inputs.push == 'true' }}
       shell: "bash"
