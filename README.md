@@ -1,4 +1,4 @@
-# Generate Python API's from sdRDM markdown schema
+# Software-driven RDM Python API Generator Action
 
 ![Tests](https://github.com/JR-1991/generate-sdrdm-api/actions/workflows/test_action.yml/badge.svg)
 
