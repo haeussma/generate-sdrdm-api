@@ -30,3 +30,5 @@ This is a GitHub Action that generates Python API's from sdRDM markdown schemes 
     schema_path: "./path/to/schema"
     push: "false"
 ```
+
+## Inputs
