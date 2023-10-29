@@ -22,7 +22,7 @@ inputs:
   push:
     description: "Push the generated API to the specified branch."
     required: true
-    default: "false"
+    default: "true"
 runs:
   using: "composite"
   steps:
