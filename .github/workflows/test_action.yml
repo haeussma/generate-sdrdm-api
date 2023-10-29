@@ -15,7 +15,6 @@ jobs:
       - name: "Inspect directory"
         run: |
           echo $PWD
-          ls -la
           ls -la ./.github/workflows/
       - name: Test
         run: |
