@@ -12,6 +12,11 @@ jobs:
           schema_path: "./.github/workflows/model.md"
           output_dir: "./.github/workflows/"
           push: "false"
+      - name: "Inspect directory"
+        run: |
+          echo $PWD
+          ls -la
+          ls -la ./.github/workflows/
       - name: Test
         run: |
           printf "::group::Testing sdRDM library\n"
