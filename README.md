@@ -1,6 +1,6 @@
 # Generate Python API's from sdRDM markdown schema
 
-![Tests](https://github.com/JR-1991/generate-sdrdm-api/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/JR-1991/generate-sdrdm-api/actions/workflows/test_action.yml/badge.svg)
 
 This is a GitHub Action that generates Python API's from sdRDM markdown schemes and pushes them to the repository.
 
