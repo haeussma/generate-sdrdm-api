@@ -12,16 +12,14 @@ jobs:
           schema_path: "./.github/workflows/model.md"
           output_dir: "./.github/workflows/"
           push: "false"
-      - name: "Inspect directory"
-        run: |
-          echo $PWD
-          ls -la
       - name: Test
         run: |
           printf "::group::Testing sdRDM library\n"
+
+          cp ./.github/workflows/test_generated_api.py ./
           
           python -m pip install rich
-          python ./.github/workflows/test_generated_api.py
+          python test_generated_api.py
 
           printf "✅ Done\n"
           printf "::endgroup::"
