@@ -6,6 +6,13 @@ This is a GitHub Action that generates Python API's from sdRDM markdown schemes 
 
 > **Note:** If you want changes to be pushed to your repository, you need to grant action read and write access. This can be done in the `settings/actions` tab of your repository.
 
+<p align="center" >
+  <img
+    src="https://i0.wp.com/user-images.githubusercontent.com/185122/115415646-1487b780-a1c5-11eb-99e2-1cafe81873b5.png?ssl=1"
+    width="600"
+  />
+</p>
+
 ## Usage
 
 ```yaml
