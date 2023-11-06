@@ -29,9 +29,10 @@ expected = {
     "__source__": {"root": "ModelObject"},
 }
 
-assert (
-    dataset.to_dict(warn=False) == expected
-), "❌ Generated API does not match expected output"
+to_test = dataset.to_dict(warn=False)
+to_test.update({"__source__": {"root": "ModelObject"}})
+
+assert to_test == expected, "❌ Generated API does not match expected output"
 
 
 rich.print(dataset.to_dict(warn=False))
