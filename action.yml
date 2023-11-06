@@ -55,6 +55,8 @@ runs:
           --path "${{ inputs.schema_path }}" \
           --out "${{ inputs.out_dir }}" \
           --name "${{ inputs.library_name }}"
+          --url "${{ github.server_url }}/${{ github.repository }}"
+          --commit "${{ github.sha }}"
 
         printf "::endgroup::\n"
 
@@ -65,8 +67,6 @@ runs:
             --path "${{ inputs.schema_path }}" \
             --out "${{ inputs.schema_out_dir }}" \
             --name "${{ inputs.library_name }}" \
-            --url "${{ github.server_url }}/${{ github.repository }}"
-            --commit "${{ github.sha }}"
 
           printf "::endgroup::\n"
         fi
