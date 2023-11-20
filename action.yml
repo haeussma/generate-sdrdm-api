@@ -10,7 +10,7 @@ inputs:
   schema_path:
     description: "Path to the sdRDM schema."
     required: true
-    default: "./specifcations/"
+    default: "./specifications/"
   out_dir:
     description: "Target directory for the generated API."
     required: true

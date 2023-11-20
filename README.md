@@ -52,6 +52,6 @@ This is a GitHub Action that generates Python API's from sdRDM markdown schemes 
 |                <a name="input_push"></a>[push](#input_push)                | string |   true   |       `"true"`       |  Push the generated API to <br>the specified branch.    |
 |             <a name="input_schema"></a>[schema](#input_schema)             | string |   true   |      `"false"`       |               Generate the sdRDM schema.                |
 | <a name="input_schema_out_dir"></a>[schema_out_dir](#input_schema_out_dir) | string |   true   |        `"./"`        |     Target directory for the generated <br>schema.      |
-|     <a name="input_schema_path"></a>[schema_path](#input_schema_path)      | string |   true   | `"./specifcations/"` |                Path to the sdRDM schema.                |
+|     <a name="input_schema_path"></a>[schema_path](#input_schema_path)      | string |   true   | `"./specifications/"` |                Path to the sdRDM schema.                |
 
 <!-- AUTO-DOC-INPUT:END -->
