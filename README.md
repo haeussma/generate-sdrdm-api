@@ -29,7 +29,7 @@ This is a GitHub Action that generates Python API's from sdRDM markdown schemes 
   with:
     library_name: "MyLibraryName"
     schema_path: "./path/to/schema"
-    output_path: "./other/dir"
+    out_dir: "./other/dir"
 
 # Generates API and does not push it to the repository
 - name: Generate sdRDM library
