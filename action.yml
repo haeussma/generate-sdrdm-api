@@ -6,7 +6,6 @@ inputs:
   library_name:
     description: "The name of the library to be generated."
     required: true
-    default: "unstable"
   schema_path:
     description: "Path to the sdRDM schema."
     required: true
@@ -18,7 +17,7 @@ inputs:
   branch:
     description: "The sdRDM branch to be used for the generated API."
     required: true
-    default: "linking-refactor"
+    default: "main"
   push:
     description: "Push the generated API to the specified branch."
     required: true
