@@ -46,8 +46,8 @@ This is a GitHub Action that generates Python API's from sdRDM markdown schemes 
 
 |                                   INPUT                                    |  TYPE  | REQUIRED |       DEFAULT        |                       DESCRIPTION                       |
 |----------------------------------------------------------------------------|--------|----------|----------------------|---------------------------------------------------------|
-|             <a name="input_branch"></a>[branch](#input_branch)             | string |   true   | `"linking-refactor"` | The sdRDM branch to be <br>used for the generated API.  |
-|    <a name="input_library_name"></a>[library_name](#input_library_name)    | string |   true   |     `"unstable"`     |      The name of the library <br>to be generated.       |
+|             <a name="input_branch"></a>[branch](#input_branch)             | string |   true   | `"main"` | The sdRDM branch to be <br>used for the generated API.  |
+|    <a name="input_library_name"></a>[library_name](#input_library_name)    | string |   true   |          |      The name of the library <br>to be generated.       |
 |           <a name="input_out_dir"></a>[out_dir](#input_out_dir)            | string |   true   |        `"./"`        |      Target directory for the generated <br>API.        |
 |                <a name="input_push"></a>[push](#input_push)                | string |   true   |       `"true"`       |  Push the generated API to <br>the specified branch.    |
 |             <a name="input_schema"></a>[schema](#input_schema)             | string |   true   |      `"false"`       |               Generate the sdRDM schema.                |
