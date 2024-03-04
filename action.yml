@@ -50,6 +50,16 @@ runs:
           printf "::group::🔧 Installing dependencies\n"
           python -m pip install sdrdm
         fi
+
+        sdrdm generate \
+          --path "${{ inputs.schema_path }}" \
+          --out "${{ inputs.out_dir }}" \
+          --name "${{ inputs.library_name }}" \
+          --url "${{ github.server_url }}/${{ github.repository }}" \
+          --commit "${{ github.sha }}"
+
+        printf "✅ Done\n"
+        printf "::endgroup::\n"
     - name: "Pushing API"
       if: ${{ inputs.push == 'true' }}
       shell: "bash"
