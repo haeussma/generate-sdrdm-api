@@ -10,7 +10,6 @@ jobs:
         with:
           library_name: "Test"
           schema_path: "./.github/workflows/model.md"
-          output_dir: "./.github/workflows/"
           push: "false"
       - name: Test
         run: |
