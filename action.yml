@@ -1,7 +1,7 @@
 # BEGIN: 8zv7t5r2n6p1
 name: generate-sdrdm-api
 description: |
-  "This action generates the sdRDM API from an sdRDM schema."
+  "This action generates the sdRDM API from a sdRDM Markdown schema."
 inputs:
   library_name:
     description: "The name of the library to be generated."
@@ -33,11 +33,41 @@ runs:
   using: "composite"
   steps:
     - name: "Checkout"
-      uses: "actions/checkout@v2"
+      uses: "actions/checkout@v4"
     - name: "Install Python"
-      uses: "actions/setup-python@v2"
+      uses: "actions/setup-python@v5"
       with:
         python-version: "3.11"
+
+    - name: Check for project dependencies
+      shell: "bash"
+      id: check-requirements
+      run: |
+        echo "checking for requirements.txt or pyproject.toml"
+        if [ -f requirements.txt ]; then
+          echo "requirements_exists=true" >> $GITHUB_OUTPUT
+        fi
+        if [ -f pyproject.toml ]; then
+          echo "pyproject_exists=true" >> $GITHUB_OUTPUT
+        fi
+    - name: Install requirements.txt dependencies
+      shell: "bash"
+      if: steps.check-requirements.outputs.requirements_exists == 'true'
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements.txt
+
+    - name: Setup Poetry
+      if: steps.check-requirements.outputs.pyproject_exists == 'true'
+      uses: snok/install-poetry@v1
+      with:
+        virtualenvs-create: false
+
+    - name: Install pyproject.toml dependencies
+      if: steps.check-requirements.outputs.pyproject_exists == 'true'
+      shell: "bash"
+      run: poetry install --no-interaction
+
     - name: "Generating API"
       shell: "bash"
       run: |
@@ -60,6 +90,7 @@ runs:
 
         printf "✅ Done\n"
         printf "::endgroup::\n"
+
     - name: "Pushing API"
       if: ${{ inputs.push == 'true' }}
       shell: "bash"
